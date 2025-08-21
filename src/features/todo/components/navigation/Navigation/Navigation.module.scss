@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.navigationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacings, 0);
+
+  h1 {
+    padding-left: map.get($spacings, -2);
+    font-size: map.get($font-sizes, 5);
+    font-weight: map.get($font-weights, 1);
+    line-height: map.get($line-heights, 0);
+  }
+
+  .createButton {
+    @include padding-size(0);
+    border-radius: $button-radius-base;
+    transition: background-color $transition-duration-base ease;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background-color: var(--button-hover-bg);
+    }
+  }
+}

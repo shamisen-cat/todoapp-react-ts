@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  transition: background-color $transition-duration-base ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--button-hover-bg);
+  }
+
+  .title {
+    flex: 1;
+    padding: map.get($spacings, -2) map.get($spacings, -2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .deleteButton {
+    background: none;
+    @include padding-size(-2);
+    color: var(--link-color);
+  }
+}

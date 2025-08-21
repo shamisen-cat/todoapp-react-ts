@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use './variables' as *;
+
+@mixin padding-size($size-level) {
+  padding: map.get(map.get($padding-sizes, $size-level), padding-y) map.get(map.get($padding-sizes, $size-level), padding-x);
+}

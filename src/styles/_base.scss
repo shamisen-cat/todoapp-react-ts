@@ -1,0 +1,126 @@
+@use 'sass:color';
+@use 'sass:map';
+@use './variables' as *;
+
+/* Base Styles */
+:root {
+  color-scheme: light dark;
+  --text-color: #{map.get($colors-light, text)};
+  --background-color: #{map.get($colors-light, background)};
+  --link-color: #{map.get($colors-light, link)};
+  --link-hover-color: #{map.get($colors-light, link-hover)};
+  --button-bg: #{map.get($colors-light, button-bg)};
+  --button-hover-bg: #{map.get($colors-light, button-hover-bg)};
+  --success-color: #{map.get($colors-light, success)};
+  --success-hover-color: #{map.get($colors-light, success-hover)};
+  --failure-color: #{map.get($colors-light, failure)};
+  --failure-hover-color: #{map.get($colors-light, failure-hover)};
+}
+
+body {
+  min-width: 20rem;
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: map.get($font-weights, 0);
+  line-height: map.get($line-heights, 0);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1 {
+  font-size: map.get($font-sizes, 7);
+  font-weight: map.get($font-weights, 3);
+  line-height: map.get($line-heights, -3);
+}
+
+h2 {
+  font-size: map.get($font-sizes, 5);
+  font-weight: map.get($font-weights, 3);
+  line-height: map.get($line-heights, -2);
+}
+
+h3 {
+  font-size: map.get($font-sizes, 4);
+  font-weight: map.get($font-weights, 2);
+  line-height: map.get($line-heights, -2);
+}
+
+h4 {
+  font-size: map.get($font-sizes, 3);
+  font-weight: map.get($font-weights, 2);
+  line-height: map.get($line-heights, -1);
+}
+
+h5 {
+  font-size: map.get($font-sizes, 2);
+  font-weight: map.get($font-weights, 1);
+  line-height: map.get($line-heights, -1);
+}
+
+h6 {
+  font-size: map.get($font-sizes, 0);
+  font-weight: map.get($font-weights, 1);
+  line-height: map.get($line-heights, 0);
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  font-weight: map.get($font-weights, 0);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
+}
+
+/* Buttons */
+button {
+  color: var(--text-color);
+  background-color: var(--button-bg);
+  border: $button-width-base solid transparent;
+  font-family: inherit;
+  font-size: map.get($font-sizes, 0);
+  font-weight: map.get($font-weights, 1);
+  line-height: map.get($line-heights, -1);
+  transition: border-color $transition-duration-base;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    border-color: var(--link-color);
+  }
+
+  &:focus-visible {
+    outline-color: $outline-color-base;
+    outline-width: $outline-width-base;
+    outline-style: auto;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #{map.get($colors-dark, text)};
+    --background-color: #{map.get($colors-dark, background)};
+    --link-color: #{map.get($colors-dark, link)};
+    --link-hover-color: #{map.get($colors-dark, link-hover)};
+    --button-bg: #{map.get($colors-dark, button-bg)};
+    --button-hover-bg: #{map.get($colors-dark, button-hover-bg)};
+    --success-color: #{map.get($colors-dark, success)};
+    --success-hover-color: #{map.get($colors-dark, success-hover)};
+    --failure-color: #{map.get($colors-dark, failure)};
+    --failure-hover-color: #{map.get($colors-dark, failure-hover)};
+  }
+}

@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '@styles/variables' as *;
+
+.appContainer {
+  display: flex;
+  justify-content: center;
+
+  .navigationContainer {
+    width: 20rem;
+    height: 100vh;
+    padding: map.get($spacings, 0);
+    overflow-y: auto;
+  }
+
+  .contentWrapper {
+    width: 40rem;
+    height: 100vh;
+    padding-left: map.get($spacings, -3);
+    overflow-y: auto;
+
+    .contentContainer {
+      width: 38rem;
+      height: 100%;
+      padding: map.get($spacings, 0);
+    }
+  }
+}

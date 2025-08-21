@@ -1,0 +1,61 @@
+@use 'sass:map';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.todoContainer {
+  display: flex;
+  flex-direction: column;
+
+  .actionContainer {
+    display: flex;
+    justify-content: space-between;
+    @include padding-size(-2);
+
+    .leftActionContainer {
+      display: flex;
+      align-items: center;
+      gap: map.get($spacings, -3);
+
+      .completed {
+        font-size: map.get($font-sizes, 2);
+        font-weight: map.get($font-weights, 1);
+      }
+    }
+
+    .rightActionContainer {
+      display: flex;
+      gap: map.get($spacings, -2);
+      transition: background-color $transition-duration-base ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--button-hover-bg);
+      }
+
+      .actionButton {
+        background: none;
+        @include padding-size(-2);
+        color: var(--link-color);
+      }
+    }
+  }
+
+  .title {
+    padding: map.get($spacings, -1);
+    font-size: map.get($font-sizes, 2);
+    font-weight: map.get($font-weights, 0);
+    line-height: map.get($line-heights, 0);
+    white-space: pre-line;
+  }
+
+  .timestamps {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: map.get($spacings, -1);
+
+    .date {
+      font-size: map.get($font-sizes, -1);
+    }
+  }
+}

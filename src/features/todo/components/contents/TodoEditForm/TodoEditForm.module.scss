@@ -1,0 +1,58 @@
+@use 'sass:map';
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.editContainer {
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacings, 0);
+
+    .title {
+      background-color: var(--button-hover-bg);
+      @include padding-size(-1);
+      font-size: map.get($font-sizes, 2);
+      font-weight: map.get($font-weights, 1);
+      line-height: map.get($line-heights, 0);
+    }
+
+    .completed {
+      display: flex;
+      align-items: center;
+      gap: map.get($spacings, 1);
+      padding-left: map.get($spacings, -2);
+
+      .checkbox {
+        width: map.get($font-sizes, 0);
+        height: map.get($font-sizes, 0);
+        transform: scale(1.5);
+        cursor: pointer;
+      }
+
+      .label {
+        font-size: map.get($font-sizes, 2);
+        font-weight: map.get($font-weights, 1);
+      }
+    }
+
+    .submitButton {
+      display: inline-block;
+      align-self: center;
+      @include padding-size(0);
+      border-radius: $button-radius-base;
+      font-size: map.get($font-sizes, 2);
+      transition: background-color $transition-duration-base ease;
+      cursor: pointer;
+
+      &:hover:not(:disabled) {
+        background-color: var(--button-hover-bg);
+      }
+
+      &:disabled {
+        outline: none;
+        border-color: transparent;
+        transition: none;
+      }
+    }
+  }
+}
